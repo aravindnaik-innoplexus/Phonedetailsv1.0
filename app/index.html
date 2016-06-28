@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+  <head>
+    <meta charset="utf-8">
+    <title>This is Sparta</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/checkmark/checkmark.filter.js"></script>
+    <script src="core/phone/phone.module.js"></script>
+    <script src="core/phone/phone.service.js"></script>
+    <script src="phone-list/phone-list.module.js"></script>
+    <script src="phone-list/phone-list.component.js"></script>
+    <script src="phone-detail/phone-detail.module.js"></script>
+    <script src="phone-detail/phone-detail.component.js"></script>
+    <script src="phone-list/phone-grid.component.js"></script>
+    <script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="core/null/null-module.js"></script>
+    <script src="core/null/null-filter.js"></script>
+    <script src="core/compfilter/comp-module.js"></script>
+    <script src="core/compfilter/comp-filter.js"></script>
+
+
+
+
+
+  </head>
+  <body>
+    <nav >
+      <div class="nav navbar navbar-inverse" style="background-color:maroon;padding-top:10px;padding-bottom:10px;height:60px;  ">
+
+        <a href="#!/phones/list"  style="margin-left:40px;font-size:20px;color:white;text-decoration:none;margin-top:300px; "> PhoneCatApp</a>
+
+
+      </div>
+    </nav>
+
+
+    <div class="container-fluid">
+
+
+
+      <div ng-view></div>
+
+    </div>
+
+  </body>
+</html>

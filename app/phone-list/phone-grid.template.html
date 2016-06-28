@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p >
+        Search:
+        <input type="text" style="top:100px;" ng-model="search.name"  placeholder="Search..!"  />
+      </p>
+
+
+      <p>
+        Sort by:
+        <select class="btn btn-primary dropdown-toggle" style="background-color:white;color:black;" ng-model="$ctrl.orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Latest</option>
+        </select>
+      </p>
+      <p>
+        List By:
+        <a href="#!/phones/list" class="glyphicon glyphicon-list btn btn-success " style="top:5px;margin-left:10px;font-size:20px;text-decoration:none;"> </a>
+        <a href="#!/phones/grid" class="glyphicon glyphicon-th btn btn-success " style="top:5px;margin-left:5px;font-size:20px;text-decoration:none;"> </a>
+      </p>
+      Brand By:
+      <div ng-repeat="phone in  $ctrl.phones | unique:'comp'" >
+
+        <div class="checkbox" >
+          <label>
+          <input type="checkbox" ng-model="phone.checked" ng-checked="phone.checked">
+          {{phone.comp}}
+        </label>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-md-10">
+      <div class="clearfix">
+      <div  ng-repeat="phone in $ctrl.phones | filter:search  |  orderBy:$ctrl.orderProp | selectedPhones" >
+          <div class="col-md-4 panel panel-info" align="center" style="min-height:200px;">
+          <a href="#!/phones/{{phone.id}}" class="panel-heading" data-toogle="tooltip" style="text-decoration:none;" title={{phone.snippet}} >{{phone.name}}</a>
+          <div>
+          <a href="#!/phones/{{phone.id}}" >
+            <img ng-src="{{phone.imageUrl}}"  class="panel-body img-responsive img-rounded "  data-toogel="tooltop" title={{phone.snippet}} alt="{{phone.name}}" style="max-width:150px;max-height:150px;" />
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

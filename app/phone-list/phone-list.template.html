@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p>
+        Search:
+        <input type="text" ng-model="search.name" placeholder="Search..!"  />
+      </p>
+
+      <p>
+        Sort by:
+        <select class="btn btn-primary dropdown-toggle" style="background-color:white;color:black;" ng-model="$ctrl.orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Latest</option>
+        </select>
+      </p>
+      <p>
+        List By:
+        <a href="#!/phones/list" class="glyphicon glyphicon-list btn btn-success" style="top:5px;margin-left:10px;font-size:20px;text-decoration:none;"> </a>
+        <a href="#!/phones/grid" class="glyphicon glyphicon-th btn btn-success  " style="top:5px;margin-left:5px;font-size:20px;text-decoration:none;"> </a>
+      </p>
+
+
+      Brand By:
+    <div ng-repeat="phone in  $ctrl.phones | unique:'comp'" >
+
+      <div class="checkbox" >
+        <label>
+        <input type="checkbox" ng-change="stateChanged(key.id)" ng-model="phone.checked" ng-checked="phone.checked" >
+
+        {{phone.comp}}
+      </label>
+      </div>
+
+    </div>
+
+
+
+
+    </div>
+    <div class="col-md-10">
+
+
+      <ul class="phones">
+        <li ng-repeat="phone in phones | filter:search | orderBy:$ctrl.orderProp | selectedPhones "
+            class="thumbnail phone-list-item">
+          <a href="#!/phones/{{phone.id}}" class="thumb">
+            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+          </a>
+          <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+          <p>{{phone.snippet}}</p>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>
